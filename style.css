@@ -1,0 +1,658 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 sans-serif;
+
+    background: #0b0b0d;
+    color: #f5f5f5;
+
+    overflow-x: hidden;
+    overflow-y:auto;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 45px;
+
+    z-index: 100;
+}
+
+.logo {
+    font-size: 12px;
+    letter-spacing: 3px;
+    opacity: .7;
+}
+
+.page-number {
+    font-size: 12px;
+    opacity: .6;
+}
+
+.progress {
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 200px;
+    height: 2px;
+
+    background: #333;
+}
+
+#progressBar {
+    display: block;
+
+    height: 100%;
+    width: 14%;
+
+    background: #fff;
+
+    transition: width .6s ease;
+}
+
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+main {
+    width: 100vw;
+    height: 100vh;
+}
+
+.page {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 100px 10%;
+
+    display: flex;
+    align-items: center;
+
+    opacity: 0;
+
+    transform: scale(.96) translateY(20px);
+
+    pointer-events: none;
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.page.active {
+    opacity: 1;
+
+    transform: scale(1) translateY(0);
+
+    pointer-events: auto;
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.small-text,
+.section-number {
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    opacity: .5;
+
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(60px, 9vw, 140px);
+
+    line-height: .9;
+
+    font-weight: 500;
+
+    letter-spacing: -6px;
+}
+
+h1 span,
+h2 span {
+    font-style: italic;
+}
+
+h2 {
+    font-size: clamp(45px, 6vw, 90px);
+
+    line-height: .95;
+
+    letter-spacing: -4px;
+
+    font-weight: 500;
+
+    margin-bottom: 40px;
+}
+
+.subtitle {
+    max-width: 500px;
+
+    margin-top: 35px;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color: #aaa;
+}
+
+.intro {
+    max-width: 600px;
+
+    margin-bottom: 50px;
+
+    color: #aaa;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    max-width: 1000px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+    margin-top: 40px;
+
+    padding: 15px 25px;
+
+    border: 1px solid #444;
+
+    background: transparent;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: .3s;
+}
+
+button:hover {
+    background: white;
+    color: black;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+.center {
+    text-align: center;
+}
+
+
+/* =========================
+   TWO COLUMN
+========================= */
+
+.two-column {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 100px;
+
+    align-items: center;
+}
+
+.two-column p {
+    max-width: 550px;
+
+    margin-bottom: 25px;
+
+    line-height: 1.8;
+
+    color: #aaa;
+}
+
+
+/* =========================
+   QUOTE CARD
+========================= */
+
+.quote-card {
+    padding: 50px;
+
+    border: 1px solid #252525;
+
+    background:
+        linear-gradient(
+            135deg,
+            #151518,
+            #0c0c0e
+        );
+}
+
+.quote {
+    font-size: 35px;
+
+    line-height: 1.2;
+}
+
+.quote-bottom {
+    margin-top: 30px;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   REASONS
+========================= */
+
+.reasons {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+
+    text-align: left;
+}
+
+.reason {
+    padding: 30px;
+
+    border: 1px solid #252525;
+
+    transition: .4s;
+}
+
+.reason:hover {
+    transform: translateY(-8px);
+
+    border-color: #555;
+}
+
+.reason span {
+    font-size: 12px;
+
+    color: #777;
+}
+
+.reason h3 {
+    margin: 20px 0 10px;
+
+    font-size: 20px;
+
+    font-weight: 400;
+}
+
+.reason p {
+    color: #888;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline {
+    position: relative;
+
+    max-width: 800px;
+
+    margin: 50px auto;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 10px;
+
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background: #333;
+}
+
+.memory {
+    position: relative;
+
+    padding-left: 50px;
+
+    margin-bottom: 50px;
+
+    text-align: left;
+}
+
+.memory-dot {
+    position: absolute;
+
+    left: 4px;
+
+    top: 5px;
+
+    width: 13px;
+    height: 13px;
+
+    border-radius: 50%;
+
+    background: white;
+}
+
+.memory-content span {
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #666;
+}
+
+.memory-content h3 {
+    margin: 10px 0;
+
+    font-size: 25px;
+
+    font-weight: 400;
+}
+
+.memory-content p {
+    color: #888;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   APOLOGY
+========================= */
+
+.apology-box {
+    max-width: 700px;
+
+    margin: auto;
+
+    padding: 40px;
+
+    border-left: 2px solid #777;
+
+    text-align: left;
+}
+
+.apology-box p {
+    margin-bottom: 20px;
+
+    color: #aaa;
+
+    line-height: 1.8;
+}
+
+.promise-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 40px;
+}
+
+.promise-grid div {
+    padding: 25px;
+
+    border: 1px solid #252525;
+}
+
+.promise-grid strong {
+    font-size: 25px;
+}
+
+.promise-grid p {
+    margin-top: 10px;
+
+    color: #777;
+}
+
+
+/* =========================
+   FUTURE
+========================= */
+
+.future-list {
+    max-width: 700px;
+
+    margin: auto;
+}
+
+.future-list div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #222;
+
+    text-align: left;
+}
+
+.future-list span {
+    color: #555;
+
+    font-size: 12px;
+}
+
+.future-list p {
+    font-size: 20px;
+}
+
+
+/* =========================
+   FINAL PAGE
+========================= */
+
+.final-page {
+    justify-content: center;
+
+    text-align: center;
+}
+
+.final-content {
+    max-width: 900px;
+}
+
+.final-content h1 {
+    font-size: clamp(50px, 7vw, 100px);
+
+    margin-bottom: 50px;
+}
+
+.typing-text {
+    min-height: 40px;
+
+    color: #aaa;
+
+    font-size: 20px;
+}
+
+.heart {
+    font-size: 45px;
+
+    margin: 30px 0;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.final-message {
+    color: #999;
+
+    line-height: 1.7;
+
+    font-size: 18px;
+}
+
+.final-message strong {
+    color: white;
+
+    font-size: 30px;
+}
+
+
+/* =========================
+   HEART ANIMATION
+========================= */
+
+@keyframes heartbeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls {
+    position: fixed;
+
+    bottom: 30px;
+    right: 40px;
+
+    display: flex;
+
+    gap: 10px;
+
+    z-index: 100;
+}
+
+.controls button {
+    margin: 0;
+
+    width: 45px;
+    height: 45px;
+
+    padding: 0;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    nav {
+        padding: 0 20px;
+    }
+
+    .progress {
+        display: none;
+    }
+
+    .page {
+        padding: 90px 25px;
+    }
+
+    h1 {
+        letter-spacing: -3px;
+    }
+
+    h2 {
+        letter-spacing: -2px;
+    }
+
+    .two-column,
+    .reasons,
+    .promise-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .two-column {
+        gap: 30px;
+    }
+
+    .quote-card {
+        padding: 30px;
+    }
+
+    .controls {
+        right: 20px;
+    }
+
+}
